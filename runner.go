@@ -7,8 +7,7 @@ import (
 	"os"
 	"runtime"
 	"sort"
-	"strings"
-	"syscall"
+	"strings"	
 	"time"
 
 	faktory "github.com/contribsys/faktory/client"
@@ -46,7 +45,8 @@ func heartbeat(mgr *Manager) {
 					// If our heartbeat expires, we must restart and re-authenticate.
 					// Use a signal so we can unwind and shutdown cleanly.
 					mgr.Logger.Warn("Faktory heartbeat has expired, shutting down...")
-					_ = syscall.Kill(os.Getpid(), syscall.SIGTERM)
+					//_ = syscall.Kill(os.Getpid(), syscall.SIGTERM)
+					os.Exit(1)
 				}
 				if err != nil || data == "" {
 					return err
