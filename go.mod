@@ -1,4 +1,4 @@
-module github.com/contribsys/faktory_worker_go
+module github.com/minnanalee/faktory_worker_go
 
 go 1.17
 
